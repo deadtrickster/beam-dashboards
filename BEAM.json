@@ -19,7 +19,7 @@
             "ETS Limit": "#508642"
           },
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "fill": 1,
           "id": 12,
           "legend": {
@@ -109,7 +109,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "fill": 1,
           "id": 14,
           "legend": {
@@ -195,7 +195,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "fill": 1,
           "id": 15,
           "legend": {
@@ -291,7 +291,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "decimals": null,
           "format": "s",
           "gauge": {
@@ -373,7 +373,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -455,7 +455,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -548,7 +548,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -661,7 +661,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -743,7 +743,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -849,7 +849,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "prom",
+          "datasource": "Prometheus",
           "decimals": null,
           "editable": true,
           "error": false,
@@ -1014,5 +1014,5 @@
   },
   "timezone": "browser",
   "title": "BEAM",
-  "version": 30
+  "version": 33
 }
