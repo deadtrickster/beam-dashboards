@@ -953,10 +953,10 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "172.17.0.1:15672",
-          "value": "172.17.0.1:15672"
+          "text": "172.17.0.1:4000",
+          "value": "172.17.0.1:4000"
         },
-        "datasource": "prom",
+        "datasource": "Prometheus",
         "hide": 0,
         "includeAll": false,
         "label": "Node",
@@ -1014,5 +1014,5 @@
   },
   "timezone": "browser",
   "title": "BEAM",
-  "version": 33
+  "version": 34
 }
