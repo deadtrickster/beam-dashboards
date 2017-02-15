@@ -292,7 +292,7 @@
             "rgba(50, 172, 45, 0.97)"
           ],
           "datasource": "Prometheus",
-          "decimals": null,
+          "decimals": 1,
           "format": "dtdurations",
           "gauge": {
             "maxValue": 100,
@@ -952,8 +952,9 @@
       {
         "allValue": null,
         "current": {
-          "text": "172.17.0.1:15672",
-          "value": "172.17.0.1:15672"
+          "tags": [],
+          "text": "172.17.0.1:4000",
+          "value": "172.17.0.1:4000"
         },
         "datasource": "Prometheus",
         "hide": 0,
@@ -1013,5 +1014,5 @@
   },
   "timezone": "browser",
   "title": "BEAM",
-  "version": 35
+  "version": 36
 }
