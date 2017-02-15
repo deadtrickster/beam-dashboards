@@ -6,6 +6,9 @@ BEAM dashboard:
 
 ![BEAM Dashboard](https://raw.githubusercontent.com/deadtrickster/beam-dashboards/master/BEAM.png)
 
+- IRC: #erlang on Freenode;
+- Slack: #prometheus channel - Browser or App(slack://elixir-lang.slack.com/messages/prometheus).
+
 ## TODO
 
 - Elli
