@@ -293,7 +293,7 @@
           ],
           "datasource": "Prometheus",
           "decimals": null,
-          "format": "s",
+          "format": "dtdurations",
           "gauge": {
             "maxValue": 100,
             "minValue": 0,
@@ -952,9 +952,8 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "172.17.0.1:4000",
-          "value": "172.17.0.1:4000"
+          "text": "172.17.0.1:15672",
+          "value": "172.17.0.1:15672"
         },
         "datasource": "Prometheus",
         "hide": 0,
@@ -1014,5 +1013,5 @@
   },
   "timezone": "browser",
   "title": "BEAM",
-  "version": 34
+  "version": 35
 }
