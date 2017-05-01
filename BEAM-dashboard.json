@@ -1,4 +1,40 @@
 {
+    "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "4.1.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": []
   },
@@ -19,7 +55,7 @@
             "ETS Limit": "#508642"
           },
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 12,
           "legend": {
@@ -109,7 +145,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 14,
           "legend": {
@@ -195,7 +231,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 15,
           "legend": {
@@ -291,7 +327,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "decimals": 1,
           "format": "dtdurations",
           "gauge": {
@@ -373,7 +409,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -455,7 +491,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -548,7 +584,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -661,7 +697,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -743,7 +779,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -849,7 +885,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "Prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "decimals": null,
           "editable": true,
           "error": false,
@@ -956,7 +992,7 @@
           "text": "172.17.0.1:4000",
           "value": "172.17.0.1:4000"
         },
-        "datasource": "Prometheus",
+        "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
         "includeAll": false,
         "label": "Node",
