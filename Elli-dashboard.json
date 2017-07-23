@@ -213,7 +213,7 @@
           ],
           "datasource": "${DS_PROMETHEUS}",
           "decimals": 2,
-          "format": "Âµs",
+          "format": "µs",
           "gauge": {
             "maxValue": 100,
             "minValue": 0,
@@ -464,7 +464,7 @@
           },
           "yaxes": [
             {
-              "format": "Âµs",
+              "format": "µs",
               "label": "",
               "logBase": 1,
               "max": null,
@@ -518,7 +518,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"informational\"}[1m])",
+              "expr": "sum by (status_class)(irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"informational\"}[1m]))",
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "",
@@ -526,7 +526,7 @@
               "step": 4
             },
             {
-              "expr": "irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"success\"}[1m])",
+              "expr": "sum by (status_class)(irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"success\"}[1m]))",
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "2xx",
@@ -535,7 +535,7 @@
               "step": 4
             },
             {
-              "expr": "irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"redirection\"}[1m])",
+              "expr": "sum by (status_class)(irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"redirection\"}[1m]))",
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "3xx",
@@ -543,7 +543,7 @@
               "step": 4
             },
             {
-              "expr": "irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"client-error\"}[1m])",
+              "expr": "sum by (status_class)(irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"client-error\"}[1m]))",
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "4xx",
@@ -551,7 +551,7 @@
               "step": 4
             },
             {
-              "expr": "irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"server-error\"}[1m])",
+              "expr": "sum by (status_class)(irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"server-error\"}[1m]))",
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "5xx",
@@ -559,7 +559,7 @@
               "step": 4
             },
             {
-              "expr": "irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"unknown\"}[1m])",
+              "expr": "sum by (status_class)(irate(http_request_duration_microseconds_count{instance=\"$node\", status_class=\"unknown\"}[1m]))",
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "unknown",
@@ -567,14 +567,14 @@
               "step": 4
             },
             {
-              "expr": "irate(http_requests_failed_total{instance=\"$node\", reason=\"request_closed\"}[1m])",
+              "expr": "sum by (reason)(irate(http_requests_failed_total{instance=\"$node\", reason=\"request_closed\"}[1m]))",
               "intervalFactor": 2,
               "legendFormat": "closed",
               "refId": "G",
               "step": 4
             },
             {
-              "expr": "irate(http_requests_failed_total{instance=\"$node\", reason=\"timeout\"}[1m])",
+              "expr": "sum by (reason)(irate(http_requests_failed_total{instance=\"$node\", reason=\"timeout\"}[1m]))",
               "intervalFactor": 2,
               "legendFormat": "timeout",
               "refId": "H",
