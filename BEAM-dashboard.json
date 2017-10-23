@@ -1087,7 +1087,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "dtdurations",
               "label": null,
               "logBase": 1,
               "max": null,
