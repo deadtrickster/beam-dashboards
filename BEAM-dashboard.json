@@ -1,48 +1,22 @@
 {
-  "__inputs": [
-    {
-      "description": "",
-      "label": "Prometheus",
-      "name": "DS_PROMETHEUS",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus",
-      "type": "datasource"
-    }
-  ],
-  "__requires": [
-    {
-      "id": "grafana",
-      "name": "Grafana",
-      "type": "grafana",
-      "version": "4.1.1"
-    },
-    {
-      "id": "graph",
-      "name": "Graph",
-      "type": "panel",
-      "version": ""
-    },
-    {
-      "id": "prometheus",
-      "name": "Prometheus",
-      "type": "datasource",
-      "version": "1.0.0"
-    },
-    {
-      "id": "singlestat",
-      "name": "Singlestat",
-      "type": "panel",
-      "version": ""
-    }
-  ],
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": false,
-  "id": null,
+  "id": 10,
   "links": [],
   "refresh": "5s",
   "rows": [
@@ -90,6 +64,7 @@
           "targets": [
             {
               "expr": "erlang_vm_ets_limit{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "ETS Limit",
               "refId": "A",
@@ -97,6 +72,7 @@
             },
             {
               "expr": "erlang_vm_ets_tables{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "ETS Tables",
               "refId": "B",
@@ -104,6 +80,7 @@
             },
             {
               "expr": "erlang_vm_dets_tables{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "DETS Tables",
               "refId": "C",
@@ -179,6 +156,7 @@
           "targets": [
             {
               "expr": "erlang_vm_process_limit{instance=\"$node\"}",
+              "format": "time_series",
               "hide": true,
               "intervalFactor": 2,
               "legendFormat": "Process Limit",
@@ -187,6 +165,7 @@
             },
             {
               "expr": "erlang_vm_process_count{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Processes",
               "refId": "B",
@@ -194,6 +173,7 @@
             },
             {
               "expr": "erlang_vm_statistics_run_queues_length_total{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Run Queues Length",
               "refId": "C",
@@ -273,21 +253,24 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(erlang_vm_statistics_context_switches{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_context_switches{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Context Switches",
               "refId": "B",
               "step": 2
             },
             {
-              "expr": "irate(erlang_vm_statistics_reductions_total{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_reductions_total{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Reductions",
               "refId": "C",
               "step": 2
             },
             {
-              "expr": "irate(erlang_vm_statistics_runtime_milliseconds{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_runtime_milliseconds{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Runtime",
               "refId": "D",
@@ -454,7 +437,8 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(erlang_vm_statistics_bytes_output_total{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_bytes_output_total{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Output Bytes",
               "metric": "erlang_vm_statistics_bytes_output_total",
@@ -462,7 +446,8 @@
               "step": 2
             },
             {
-              "expr": "irate(erlang_vm_statistics_bytes_received_total{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_bytes_received_total{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Received Bytes",
               "metric": "erlang_vm_statistics_bytes_received_total",
@@ -551,7 +536,8 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(erlang_vm_statistics_garbage_collection_number_of_gcs{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_garbage_collection_number_of_gcs{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Number of GCs",
               "metric": "erlang_vm_statistics_garbage_collection_number_of_gcs",
@@ -559,7 +545,8 @@
               "step": 2
             },
             {
-              "expr": "irate(erlang_vm_statistics_garbage_collection_bytes_reclaimed{instance=\"$node\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_garbage_collection_bytes_reclaimed{instance=\"$node\"}[$interval])",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Bytes Reclaimed",
               "metric": "erlang_vm_statistics_garbage_collection_words_reclaimed",
@@ -638,6 +625,7 @@
           "targets": [
             {
               "expr": "erlang_vm_memory_bytes_total{instance=\"$node\", kind=\"processes\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Processes Memory",
               "refId": "B",
@@ -645,6 +633,7 @@
             },
             {
               "expr": "erlang_vm_memory_system_bytes_total{instance=\"$node\", usage=\"atom\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Atoms",
               "refId": "C",
@@ -652,6 +641,7 @@
             },
             {
               "expr": "erlang_vm_memory_system_bytes_total{instance=\"$node\", usage=\"binary\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Binary",
               "refId": "D",
@@ -659,6 +649,7 @@
             },
             {
               "expr": "erlang_vm_memory_system_bytes_total{instance=\"$node\", usage=\"code\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Code",
               "refId": "E",
@@ -666,6 +657,7 @@
             },
             {
               "expr": "erlang_vm_memory_system_bytes_total{instance=\"$node\", usage=\"ets\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "ETS",
               "refId": "F",
@@ -755,6 +747,7 @@
           "targets": [
             {
               "expr": "process_virtual_memory_bytes{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Vertual Memory",
               "refId": "A",
@@ -762,6 +755,7 @@
             },
             {
               "expr": "process_resident_memory_bytes{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Resident Memory",
               "refId": "B",
@@ -850,6 +844,7 @@
           "targets": [
             {
               "expr": "process_open_fds{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Open FDs",
               "metric": "",
@@ -858,6 +853,7 @@
             },
             {
               "expr": "process_max_fds{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Max FDs",
               "refId": "B",
@@ -865,6 +861,7 @@
             },
             {
               "expr": "erlang_vm_port_limit{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Max Ports",
               "refId": "C",
@@ -872,6 +869,7 @@
             },
             {
               "expr": "erlang_vm_port_count{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Ports",
               "refId": "D",
@@ -957,6 +955,7 @@
           "targets": [
             {
               "expr": "process_threads_total{instance=\"$node\"}",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Threads",
               "metric": "",
@@ -964,7 +963,8 @@
               "step": 2
             },
             {
-              "expr": "sum(irate(process_cpu_seconds_total{instance=\"$node\"}[30s])) without (kind) * 100",
+              "expr": "sum(irate(process_cpu_seconds_total{instance=\"$node\"}[$interval])) without (kind) * 100",
+              "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "CPU",
               "refId": "B",
@@ -1015,102 +1015,6 @@
       "showTitle": false,
       "title": "New row",
       "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "fill": 1,
-          "id": 21,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(process_cpu_seconds_total{kind=\"utime\"}[30s])",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "utime",
-              "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "rate(process_cpu_seconds_total{kind=\"stime\"}[30s])",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "stime",
-              "refId": "B",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CPU Time, 30s average",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "dtdurations",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
     }
   ],
   "schemaVersion": 14,
@@ -1121,7 +1025,6 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
           "text": "172.17.0.1:4000",
           "value": "172.17.0.1:4000"
         },
@@ -1139,15 +1042,89 @@
         "tagValuesQuery": "label_values({job=\"$tag\"},instance)",
         "tags": [
           "api",
+          "elli",
           "linux",
           "lisp",
           "mysql",
           "prometheus",
+          "push",
           "rabbitmq"
         ],
         "tagsQuery": "label_values(job)",
         "type": "query",
         "useTags": true
+      },
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "text": "5m",
+          "value": "5m"
+        },
+        "hide": 0,
+        "label": null,
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": true,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "1m,5m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "refresh": 2,
+        "type": "interval"
       }
     ]
   },
@@ -1183,5 +1160,5 @@
   },
   "timezone": "browser",
   "title": "BEAM",
-  "version": 36
+  "version": 41
 }

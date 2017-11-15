@@ -1,48 +1,22 @@
 {
-  "__inputs": [
-    {
-      "description": "",
-      "label": "Prometheus",
-      "name": "DS_PROMETHEUS",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus",
-      "type": "datasource"
-    }
-  ],
-  "__requires": [
-    {
-      "id": "grafana",
-      "name": "Grafana",
-      "type": "grafana",
-      "version": "4.1.1"
-    },
-    {
-      "id": "graph",
-      "name": "Graph",
-      "type": "panel",
-      "version": ""
-    },
-    {
-      "id": "prometheus",
-      "name": "Prometheus",
-      "type": "datasource",
-      "version": "1.0.0"
-    },
-    {
-      "id": "singlestat",
-      "name": "Singlestat",
-      "type": "panel",
-      "version": ""
-    }
-  ],
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": false,
-  "id": 7,
+  "id": 15,
   "links": [],
   "refresh": "5s",
   "rows": [
@@ -82,10 +56,10 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(http_request_duration_microseconds_sum[30s]) / rate(http_request_duration_microseconds_count[30s])",
+              "expr": "sum(irate(http_request_duration_microseconds_sum{instance=\"$node\"}[$interval])) by(status_class) / sum(irate(http_request_duration_microseconds_count{instance=\"$node\"}[$interval])) by(status_class)",
               "format": "time_series",
               "intervalFactor": 2,
-              "legendFormat": "{{request_path}}",
+              "legendFormat": "{{status_class}}",
               "refId": "A",
               "step": 2
             }
@@ -93,7 +67,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "HTTP request time, 30s average",
+          "title": "HTTP request time, $interval average",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -158,7 +132,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(phoenix_controller_call_duration_microseconds_sum[30s]) / rate(phoenix_controller_call_duration_microseconds_count[30s])",
+              "expr": "rate(phoenix_controller_call_duration_microseconds_sum{instance=\"$node\"}[30s]) / rate(phoenix_controller_call_duration_microseconds_count{instance=\"$node\"}[30s])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{controller}}/{{action}}",
@@ -234,7 +208,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(http_requests_total[30s])",
+              "expr": "rate(http_requests_total{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{method}} {{request_path}}",
@@ -245,7 +219,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "HTTP request count, 30s average",
+          "title": "HTTP request count, $interval average",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -322,7 +296,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(ecto_query_duration_microseconds_sum[30s]) / rate(ecto_query_duration_microseconds_count[30s])",
+              "expr": "rate(ecto_query_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(ecto_query_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Ecto query",
@@ -333,7 +307,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Ecto Query Duration, 30s average",
+          "title": "Ecto Query Duration, $interval average",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -398,7 +372,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(ecto_decode_duration_microseconds_sum[30s]) / rate(ecto_decode_duration_microseconds_count[30s])",
+              "expr": "rate(ecto_decode_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(ecto_decode_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "The time spent decoding the result, 30s average",
@@ -406,7 +380,7 @@
               "step": 2
             },
             {
-              "expr": "rate(ecto_queue_duration_microseconds_sum[30s]) / rate(ecto_queue_duration_microseconds_count[30s])",
+              "expr": "rate(ecto_queue_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(ecto_queue_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "The time spent to check the connection out, 30s average",
@@ -417,7 +391,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Ecto, 30s average",
+          "title": "Ecto, $interval average",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -482,7 +456,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(phoenix_controller_render_duration_microseconds_sum[30s]) / rate(phoenix_controller_render_duration_microseconds_count[30s])",
+              "expr": "rate(phoenix_controller_render_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(phoenix_controller_render_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{view}}",
@@ -493,7 +467,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "View rendering time, 30s average",
+          "title": "View rendering time, $interval average",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -543,8 +517,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "localhost:4000",
-          "value": "localhost:4000"
+          "text": "172.17.0.1:4000",
+          "value": "172.17.0.1:4000"
         },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
@@ -559,11 +533,90 @@
         "sort": 1,
         "tagValuesQuery": "label_values({job=\"$tag\"},instance)",
         "tags": [
-          "prometheus"
+          "api",
+          "elli",
+          "linux",
+          "lisp",
+          "mysql",
+          "prometheus",
+          "push",
+          "rabbitmq"
         ],
         "tagsQuery": "label_values(job)",
         "type": "query",
         "useTags": true
+      },
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "text": "1m",
+          "value": "1m"
+        },
+        "hide": 0,
+        "label": null,
+        "name": "interval",
+        "options": [
+          {
+            "selected": true,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "1m,5m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "refresh": 2,
+        "type": "interval"
       }
     ]
   },
@@ -599,5 +652,5 @@
   },
   "timezone": "browser",
   "title": "Phoenix APP",
-  "version": 2
+  "version": 5
 }
