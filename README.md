@@ -13,7 +13,10 @@ Elli dashboard:
 
 ![Elli Dashboard](https://raw.githubusercontent.com/deadtrickster/beam-dashboards/master/Elli.png)
 
+Plugs/Phoenix/Ecto dashboard:
+
+![Plugs/Phoenix/Ecto Dashboard](https://raw.githubusercontent.com/deadtrickster/beam-dashboards/master/Elixir.png)
+
 ## TODO
 
-- Plugs/Phoenix/Ecto
 - RabbitMQ
