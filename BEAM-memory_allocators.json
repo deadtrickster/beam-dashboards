@@ -14,13 +14,13 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.0.4"
+      "version": "5.1.3"
     },
     {
       "type": "panel",
       "id": "grafana-piechart-panel",
       "name": "Pie Chart",
-      "version": "1.2.0"
+      "version": "1.3.1"
     },
     {
       "type": "panel",
@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1526664589058,
+  "iteration": 1526667575307,
   "links": [],
   "panels": [
     {
@@ -2750,9 +2750,9 @@
         "current": {},
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Node",
-        "multi": true,
+        "multi": false,
         "name": "node",
         "options": [],
         "query": "label_values(erlang_vm_process_count, instance)",
@@ -2797,7 +2797,7 @@
     ]
   },
   "timezone": "",
-  "title": "BEAM memory allocators",
+  "title": "ERTS memory allocators",
   "uid": "o_rtdpWik",
-  "version": 17
+  "version": 18
 }
