@@ -142,7 +142,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(phoenix_controller_call_duration_microseconds_sum{instance=\"$node\"}[30s]) / rate(phoenix_controller_call_duration_microseconds_count{instance=\"$node\"}[30s])",
+              "expr": "rate(phoenix_controller_call_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(phoenix_controller_call_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{controller}}/{{action}}",
@@ -153,7 +153,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Controller call durations, 30s average",
+          "title": "Controller call durations, $interval average",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -385,7 +385,7 @@
               "expr": "rate(ecto_decode_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(ecto_decode_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 2,
-              "legendFormat": "The time spent decoding the result, 30s average",
+              "legendFormat": "The time spent decoding the result, $interval average",
               "refId": "A",
               "step": 2
             },
@@ -393,7 +393,7 @@
               "expr": "rate(ecto_queue_duration_microseconds_sum{instance=\"$node\"}[$interval]) / rate(ecto_queue_duration_microseconds_count{instance=\"$node\"}[$interval])",
               "format": "time_series",
               "intervalFactor": 2,
-              "legendFormat": "The time spent to check the connection out, 30s average",
+              "legendFormat": "The time spent to check the connection out, $interval average",
               "refId": "B",
               "step": 2
             }
