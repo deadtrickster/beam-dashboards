@@ -81,7 +81,7 @@
               "step": 2
             },
             {
-              "expr": "erlang_vm_ets_tables{instance=\"$node\"}",
+              "expr": "erlang_vm_memory_ets_tables{instance=\"$node\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "ETS Tables",
@@ -89,7 +89,7 @@
               "step": 2
             },
             {
-              "expr": "erlang_vm_dets_tables{instance=\"$node\"}",
+              "expr": "erlang_vm_memory_dets_tables{instance=\"$node\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "DETS Tables",
@@ -1170,5 +1170,5 @@
   },
   "timezone": "browser",
   "title": "BEAM",
-  "version": 41
+  "version": 42
 }
